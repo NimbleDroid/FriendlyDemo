@@ -1,0 +1,178 @@
+apply plugin: 'com.android.application'
+apply from: '../config/quality/quality.gradle'
+apply plugin: 'com.github.triplet.play'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.squareup.sqldelight'
+
+//TODO uncomment line below after adding fabric api secret and key to fabric.properties
+//apply plugin: 'io.fabric'
+repositories {
+    //Defaults are defined via parent project and plugin
+
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/'}
+
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.2'
+
+    defaultConfig {
+        applicationId 'nyc.friendlyrobot.anchor.androidboilerplate'
+        minSdkVersion 16
+        targetSdkVersion 23
+        testInstrumentationRunner "${applicationId}.runner.RxAndroidJUnitRunner"
+        versionCode 1000
+        // Major -> Millions, Minor -> Thousands, Bugfix -> Hundreds. E.g 1.3.72 == 1,003,072
+        versionName '0.1.0'
+    }
+    compileOptions {
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    signingConfigs {
+        // You must set up an environment var before release signing
+        // Run: export APP_KEY={password}
+        // TODO Add your release keystore in /keystore folder
+        release {
+            storeFile file('keystore/release.keystore')
+            keyAlias 'alias'
+            storePassword "$System.env.APP_KEY"
+            keyPassword "$System.env.APP_KEY"
+        }
+
+        debug {
+            storeFile file('keystore/debug.keystore')
+            keyAlias 'androiddebugkey'
+            storePassword 'android'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            ext.betaDistributionReleaseNotesFilePath =
+                    file('../crashlytics_release_notes.txt').absolutePath
+        }
+
+        debug {
+            versionNameSuffix " Debug"
+            debuggable true
+        }
+    }
+
+    sourceSets {
+        def commonTestDir = 'src/commonTest/java'
+        test {
+            java.srcDir commonTestDir
+        }
+        androidTest {
+            java.srcDir commonTestDir
+        }
+    }
+
+    //Needed because of this https://github.com/square/okio/issues/58
+    lintOptions {
+        warning 'InvalidPackage'
+    }
+}
+
+play {
+    serviceAccountEmail = 'your-service-account-email'
+    pk12File = file('key.p12')
+    // By default publishes to Alpha channel
+    track = 'alpha'
+}
+
+dependencies {
+    final PLAY_SERVICES_VERSION = '8.4.0'
+    final SUPPORT_LIBRARY_VERSION = '23.1.1'
+    final RETROFIT_VERSION = '2.0.0-beta3'
+    final DAGGER_VERSION = '2.0.2'
+    final DEXMAKER_VERSION = '1.4'
+    final HAMCREST_VERSION = '1.3'
+    final ESPRESSO_VERSION = '2.2.1'
+    final RUNNER_VERSION = '0.4'
+    final picassoOkHttpDownloader = '1.0.2'
+
+    def daggerCompiler = "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+    def jUnit = "junit:junit:4.12"
+    def mockito = "org.mockito:mockito-core:1.10.19"
+
+    // App Dependencies
+//    compile "com.google.android.gms:play-services-gcm:$PLAY_SERVICES_VERSION"
+    compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:cardview-v7:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.squareup.sqlbrite:sqlbrite:0.6.2'
+    compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+    compile "com.squareup.retrofit2:adapter-rxjava:$RETROFIT_VERSION"
+    compile 'com.squareup:otto:1.3.8'
+    compile "com.jakewharton.picasso:picasso2-okhttp3-downloader:$picassoOkHttpDownloader"
+   compile  "com.squareup.okhttp3:okhttp:3.1.2"
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.jakewharton.timber:timber:4.1.0'
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.2@aar') {
+        transitive = true;
+    }
+
+    apt "org.immutables:value:2.1.16-SNAPSHOT" // <-- for annotation processor
+    provided "org.immutables:value:2.1.16-SNAPSHOT" // <-- for annotation API
+    provided "org.immutables:gson:2.1.16-SNAPSHOT" // for annotations
+
+    compile 'com.google.code.gson:gson:2.6.1'
+    compile 'com.google.guava:guava:19.0'
+
+    compile "com.google.dagger:dagger:$DAGGER_VERSION"
+    provided 'org.glassfish:javax.annotation:10.0-b28' //Required by Dagger2
+
+    // Instrumentation test dependencies
+    androidTestCompile jUnit
+    androidTestCompile mockito
+    androidTestCompile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:$ESPRESSO_VERSION") {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    }
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$ESPRESSO_VERSION"
+    androidTestCompile "com.android.support.test:runner:$RUNNER_VERSION"
+    androidTestCompile "com.android.support.test:rules:$RUNNER_VERSION"
+    androidTestCompile "com.crittercism.dexmaker:dexmaker:$DEXMAKER_VERSION"
+    androidTestCompile "com.crittercism.dexmaker:dexmaker-dx:$DEXMAKER_VERSION"
+    androidTestCompile "com.crittercism.dexmaker:dexmaker-mockito:$DEXMAKER_VERSION"
+
+    // Unit tests dependencies
+    testCompile jUnit
+    testCompile mockito
+    testCompile "org.hamcrest:hamcrest-core:$HAMCREST_VERSION"
+    testCompile "org.hamcrest:hamcrest-library:$HAMCREST_VERSION"
+    testCompile "org.hamcrest:hamcrest-integration:$HAMCREST_VERSION"
+    testCompile 'org.robolectric:robolectric:3.0'
+
+    // APT dependencies
+    apt daggerCompiler
+    testApt daggerCompiler
+    androidTestApt daggerCompiler
+}
+
+// Log out test results to console
+tasks.matching { it instanceof junit.framework.Test }.all {
+    testLogging.events = ["failed", "passed", "skipped"]
+}
+
+
