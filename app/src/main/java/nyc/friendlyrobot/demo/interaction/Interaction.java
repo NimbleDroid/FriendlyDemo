@@ -6,14 +6,10 @@ import com.squareup.sqlbrite.BriteDatabase;
 
 import javax.inject.Inject;
 
-import nyc.friendlyrobot.demo.data.remote.Api;
-
 public class Interaction {
     @Inject
     BriteDatabase db;
 
-    @Inject
-    Api api;
 
 
     public boolean recordExists(String TableName,

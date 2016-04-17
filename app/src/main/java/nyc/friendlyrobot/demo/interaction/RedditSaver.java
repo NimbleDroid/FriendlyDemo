@@ -9,9 +9,7 @@ import nyc.friendlyrobot.demo.data.model.Image;
 import nyc.friendlyrobot.demo.data.model.Post;
 import rx.Observable;
 
-import static nyc.friendlyrobot.demo.data.model.Post.MAPPER;
 import static nyc.friendlyrobot.demo.data.model.Post.Marshal;
-import static nyc.friendlyrobot.demo.data.model.Post.SELECT_ALL;
 import static nyc.friendlyrobot.demo.data.model.Post.TABLE_NAME;
 
 public class RedditSaver extends Interaction {
@@ -24,15 +22,9 @@ public class RedditSaver extends Interaction {
                 .from(children)
                 .map(Children::data)
                 .doOnNext(this::insertPost)
-                .toList()
-                .flatMap(this::readPosts);
+                .toList();
     }
 
-    private Observable<List<Post>> readPosts(List<Post> posts) {
-        return db.createQuery(TABLE_NAME, SELECT_ALL)
-                .mapToList(MAPPER::map)
-                .first(); //first is necessary since its an endless stream
-    }
 
     private void insertPost(Post post) {
         if (!post.nestedThumbnail().isPresent()) {

@@ -16,7 +16,7 @@ public  class Database extends SQLiteOpenHelper {
 
   @Inject
   public Database(Application context) {
-    super(context, null, null, DATABASE_VERSION);
+    super(context, "db", null, DATABASE_VERSION);
   }
 
   @Override public void onCreate(SQLiteDatabase db) {
