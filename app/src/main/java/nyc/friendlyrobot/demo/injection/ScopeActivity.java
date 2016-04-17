@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.injection;
+package nyc.friendlyrobot.demo.injection;
 
 
 import java.lang.annotation.Retention;

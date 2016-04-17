@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.ui.main;
+package nyc.friendlyrobot.demo.ui.main;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,27 +6,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import nyc.friendlyrobot.anchor.androidboilerplate.R;
-import nyc.friendlyrobot.anchor.data.model.Loo;
+import nyc.friendlyrobot.demo.androidboilerplate.R;
+import nyc.friendlyrobot.demo.data.model.RedditData;
 
 public class RibotsAdapter extends RecyclerView.Adapter<RibotsAdapter.RibotViewHolder> {
 
-    private List<Loo> data;
+//    private List<Loo> data;
 
     @Inject
     public RibotsAdapter() {
-        data = new ArrayList<>();
+//        data = new ArrayList<>();
     }
 
-    public void setLoos(List<Loo> looList) {
-        data = looList;
+    public void setLoos(List<RedditData> looList) {
+//        data = looList;
     }
 
     @Override
@@ -38,13 +37,14 @@ public class RibotsAdapter extends RecyclerView.Adapter<RibotsAdapter.RibotViewH
 
     @Override
     public void onBindViewHolder(RibotViewHolder holder, int position) {
-            holder.nameTextView.setText(data.get(position).id()+"");
-            holder.emailTextView.setText(data.get(position).foo_id()+"");
+//            holder.nameTextView.setText(data.get(position).id()+"");
+//            holder.emailTextView.setText(data.get(position).foo_id()+"");
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return 0;
+//        return data.size();
     }
 
     class RibotViewHolder extends RecyclerView.ViewHolder {

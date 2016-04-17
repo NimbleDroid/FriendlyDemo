@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.interaction;
+package nyc.friendlyrobot.demo.interaction;
 
 import android.database.Cursor;
 
@@ -6,7 +6,7 @@ import com.squareup.sqlbrite.BriteDatabase;
 
 import javax.inject.Inject;
 
-import nyc.friendlyrobot.anchor.data.remote.Api;
+import nyc.friendlyrobot.demo.data.remote.Api;
 
 public class Interaction {
     @Inject

@@ -1,11 +1,11 @@
-package nyc.friendlyrobot.anchor.injection.module;
+package nyc.friendlyrobot.demo.injection.module;
 
 import android.app.Activity;
 import android.content.Context;
 
 import dagger.Module;
 import dagger.Provides;
-import nyc.friendlyrobot.anchor.injection.ActivityContext;
+import nyc.friendlyrobot.demo.injection.ActivityContext;
 
 @Module
 public class ActivityModule {

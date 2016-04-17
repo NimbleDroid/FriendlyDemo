@@ -1,14 +1,16 @@
-package nyc.friendlyrobot.anchor.data.remote;
+package nyc.friendlyrobot.demo.data.remote;
 
-import nyc.friendlyrobot.anchor.data.model.Foo;
+import nyc.friendlyrobot.demo.data.model.RedditData;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Query;
 import rx.Observable;
 
 public interface Api {
 
     String ENDPOINT = "https://api.ribot.io/";
 
-    @GET("ribots")
-    Observable<Foo> foo(@Header("fresh") String fresh);
+
+    @GET("r/aww/new/.json")
+    Observable<RedditData> aww(@Query("limit") String limit, @Header("fresh") String fresh);
 }

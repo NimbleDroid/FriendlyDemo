@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.ui.base;
+package nyc.friendlyrobot.demo.ui.base;
 
 /**
  * Every presenter in the app must either implement this interface or extend BasePresenter

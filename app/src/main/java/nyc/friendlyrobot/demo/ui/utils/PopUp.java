@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.ui.utils;
+package nyc.friendlyrobot.demo.ui.utils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.widget.PopupMenu;
 
 import javax.inject.Inject;
 
-import nyc.friendlyrobot.anchor.injection.ScopeActivity;
+import nyc.friendlyrobot.demo.injection.ScopeActivity;
 
 /**
  * Created by brianplummer on 3/24/16.

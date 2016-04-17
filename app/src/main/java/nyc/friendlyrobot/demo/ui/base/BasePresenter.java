@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.ui.base;
+package nyc.friendlyrobot.demo.ui.base;
 
 /**
  * Base class that implements the Presenter interface and provides a base implementation for
@@ -33,7 +33,7 @@ public class BasePresenter<T extends MvpView> implements Presenter<T> {
 
     public static class MvpViewNotAttachedException extends RuntimeException {
         public MvpViewNotAttachedException() {
-            super("Please call Presenter.attachView(MvpView) before" +
+            super("Please save Presenter.attachView(MvpView) before" +
                     " requesting data to the Presenter");
         }
     }

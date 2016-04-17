@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.ui.main.widgets;
+package nyc.friendlyrobot.demo.ui.main.widgets;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,8 +8,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import nyc.friendlyrobot.anchor.androidboilerplate.R;
-import nyc.friendlyrobot.anchor.ui.utils.TypefaceCache;
+import nyc.friendlyrobot.demo.androidboilerplate.R;
+import nyc.friendlyrobot.demo.ui.utils.TypefaceCache;
 import timber.log.Timber;
 
 /**

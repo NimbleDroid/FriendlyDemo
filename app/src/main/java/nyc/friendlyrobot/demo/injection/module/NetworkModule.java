@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.injection.module;
+package nyc.friendlyrobot.demo.injection.module;
 
 import android.app.Application;
 import android.support.annotation.NonNull;
@@ -9,9 +9,9 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import nyc.friendlyrobot.anchor.data.local.AppPreferences;
-import nyc.friendlyrobot.anchor.injection.ClientCache;
-import nyc.friendlyrobot.anchor.util.CacheInterceptor;
+import nyc.friendlyrobot.demo.data.local.AppPreferences;
+import nyc.friendlyrobot.demo.injection.ClientCache;
+import nyc.friendlyrobot.demo.util.CacheInterceptor;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;

@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.ui.utils;
+package nyc.friendlyrobot.demo.ui.utils;
 
 import android.graphics.Typeface;
 

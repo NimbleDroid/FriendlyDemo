@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.util;
+package nyc.friendlyrobot.demo.util;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -6,7 +6,7 @@ import android.content.Context;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AlertDialog;
 
-import nyc.friendlyrobot.anchor.androidboilerplate.R;
+import nyc.friendlyrobot.demo.androidboilerplate.R;
 
 public final class DialogFactory {
 

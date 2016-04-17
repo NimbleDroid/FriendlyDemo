@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.interaction;
+package nyc.friendlyrobot.demo.interaction;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

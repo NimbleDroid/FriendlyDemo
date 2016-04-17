@@ -1,14 +1,14 @@
-package nyc.friendlyrobot.anchor.injection.component;
+package nyc.friendlyrobot.demo.injection.component;
 
 import android.support.annotation.NonNull;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
-import nyc.friendlyrobot.anchor.BoilerplateApplication;
-import nyc.friendlyrobot.anchor.injection.module.ActivityModule;
-import nyc.friendlyrobot.anchor.injection.module.ApplicationModule;
-import nyc.friendlyrobot.anchor.injection.module.NetworkModule;
+import nyc.friendlyrobot.demo.BoilerplateApplication;
+import nyc.friendlyrobot.demo.injection.module.ActivityModule;
+import nyc.friendlyrobot.demo.injection.module.ApplicationModule;
+import nyc.friendlyrobot.demo.injection.module.NetworkModule;
 
 @Singleton
 @Component(modules = {

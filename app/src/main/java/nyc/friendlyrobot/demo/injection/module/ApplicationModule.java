@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.injection.module;
+package nyc.friendlyrobot.demo.injection.module;
 
 import android.app.Application;
 import android.content.Context;
@@ -18,12 +18,12 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import nyc.friendlyrobot.anchor.androidboilerplate.BuildConfig;
-import nyc.friendlyrobot.anchor.data.local.Database;
-import nyc.friendlyrobot.anchor.data.model.GsonAdaptersModel;
-import nyc.friendlyrobot.anchor.data.remote.Api;
-import nyc.friendlyrobot.anchor.injection.ApplicationContext;
-import nyc.friendlyrobot.anchor.util.DateDeserializer;
+import nyc.friendlyrobot.demo.androidboilerplate.BuildConfig;
+import nyc.friendlyrobot.demo.data.local.Database;
+import nyc.friendlyrobot.demo.data.model.GsonAdaptersModel;
+import nyc.friendlyrobot.demo.data.remote.Api;
+import nyc.friendlyrobot.demo.injection.ApplicationContext;
+import nyc.friendlyrobot.demo.util.DateDeserializer;
 import okhttp3.OkHttpClient;
 import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
@@ -77,7 +77,7 @@ public class ApplicationModule {
                              @NonNull Gson gson) {
 
         return new Retrofit.Builder()
-                .baseUrl("http://boxbee-api-staging.herokuapp.com/api/v1/")
+                .baseUrl("http://reddit.com/")
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())

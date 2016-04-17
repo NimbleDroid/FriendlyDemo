@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.injection.module;
+package nyc.friendlyrobot.demo.injection.module;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,9 +6,9 @@ import android.os.Bundle;
 
 import dagger.Module;
 import dagger.Provides;
-import nyc.friendlyrobot.anchor.injection.ScopeActivity;
-import nyc.friendlyrobot.anchor.ui.base.BaseActivity;
-import nyc.friendlyrobot.anchor.util.BundleService;
+import nyc.friendlyrobot.demo.injection.ScopeActivity;
+import nyc.friendlyrobot.demo.ui.base.BaseActivity;
+import nyc.friendlyrobot.demo.util.BundleService;
 
 
 @Module

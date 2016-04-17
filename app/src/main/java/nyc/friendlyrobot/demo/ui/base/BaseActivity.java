@@ -1,11 +1,11 @@
-package nyc.friendlyrobot.anchor.ui.base;
+package nyc.friendlyrobot.demo.ui.base;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import nyc.friendlyrobot.anchor.injection.ActivityComponentFactory;
-import nyc.friendlyrobot.anchor.injection.component.ActivityComponent;
-import nyc.friendlyrobot.anchor.util.BundleService;
+import nyc.friendlyrobot.demo.injection.ActivityComponentFactory;
+import nyc.friendlyrobot.demo.injection.component.ActivityComponent;
+import nyc.friendlyrobot.demo.util.BundleService;
 
 public class BaseActivity extends AppCompatActivity {
 

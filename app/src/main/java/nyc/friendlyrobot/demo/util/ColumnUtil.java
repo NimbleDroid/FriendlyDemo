@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.util;
+package nyc.friendlyrobot.demo.util;
 
 import android.content.ContentValues;
 import android.database.Cursor;

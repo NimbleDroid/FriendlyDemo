@@ -1,0 +1,11 @@
+CREATE TABLE post (
+    _id LONG  PRIMARY KEY AUTOINCREMENT,
+    title STRING NOT NULL,
+    url STRING NOT NULL,
+    height INT  NULL,
+    width INT  NULL
+);
+
+select_all:
+SELECT *
+FROM post;

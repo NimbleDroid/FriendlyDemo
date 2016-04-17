@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.anchor.data.local;
+package nyc.friendlyrobot.demo.data.local;
 
 import android.annotation.SuppressLint;
 import android.app.Application;

@@ -1,10 +1,10 @@
-package nyc.friendlyrobot.anchor.injection;
+package nyc.friendlyrobot.demo.injection;
 
 import android.app.Activity;
 
-import nyc.friendlyrobot.anchor.BoilerplateApplication;
-import nyc.friendlyrobot.anchor.injection.component.ActivityComponent;
-import nyc.friendlyrobot.anchor.injection.module.ActivityModule;
+import nyc.friendlyrobot.demo.BoilerplateApplication;
+import nyc.friendlyrobot.demo.injection.component.ActivityComponent;
+import nyc.friendlyrobot.demo.injection.module.ActivityModule;
 
 public final class ActivityComponentFactory {
     private ActivityComponentFactory() {

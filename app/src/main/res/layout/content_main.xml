@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<nyc.friendlyrobot.demo.ui.reddit.RedditRecyclerView
+    android:id="@+id/postRecyclerView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray70"/>
