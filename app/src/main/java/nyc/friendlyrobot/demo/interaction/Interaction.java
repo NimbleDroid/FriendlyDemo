@@ -6,16 +6,18 @@ import com.squareup.sqlbrite.BriteDatabase;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
+
 public class Interaction {
     @Inject
-    BriteDatabase db;
+    Lazy<BriteDatabase> db;
 
 
 
     public boolean recordExists(String TableName,
                                 String dbfield, String fieldValue) {
         String Query = "Select * from " + TableName + " where " + dbfield + " = " + fieldValue;
-        Cursor cursor = db.query(Query);
+        Cursor cursor = db.get().query(Query);
         if (cursor.getCount() <= 0) {
             cursor.close();
             return false;

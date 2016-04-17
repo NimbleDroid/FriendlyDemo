@@ -1,5 +1,7 @@
 package nyc.friendlyrobot.demo.interaction;
 
+import android.support.annotation.NonNull;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -25,21 +27,24 @@ public class RedditReader extends Interaction {
 
     public Observable<List<Post>> readPosts() {
         if (!recordExists(Post.TABLE_NAME, Post._ID, "1")) {
-            List<Post> post = seedDB(); //block on seeding on fresh install
+            return seedDB()
+                    .flatMap(posts -> getPostsFromDB());
         }
+        return getPostsFromDB();
+    }
 
-        return db.createQuery(TABLE_NAME, Post.SELECT_ALL)
+    @NonNull
+    private Observable<List<Post>> getPostsFromDB() {
+        return db.get().createQuery(TABLE_NAME, Post.SELECT_ALL)
                 .mapToList(Post.MAPPER::map)
                 .first();
     }
 
-    private List<Post> seedDB() {
-        List<Post> first = store.get(LIMIT)
+    private Observable<List<Post>> seedDB() {
+        return store.get(LIMIT)
                 .subscribeOn(Schedulers.io())
                 .map(redditData -> redditData.data().children())
-                .flatMap(saver::save)
-                .toBlocking()
-                .first();
-        return first;
+                .flatMap(saver::save);
+
     }
 }

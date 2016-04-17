@@ -32,7 +32,7 @@ public class RedditSaver extends Interaction {
         }
         Image image = post.nestedThumbnail().get();
 
-        db.insert(TABLE_NAME, new Marshal()
+        db.get().insert(TABLE_NAME, new Marshal()
                 .title(post.title())
                 .height(image.height())
                 .width(image.width())

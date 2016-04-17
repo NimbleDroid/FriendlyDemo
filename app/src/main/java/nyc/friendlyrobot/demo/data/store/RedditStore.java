@@ -6,6 +6,7 @@ import com.squareup.sqlbrite.BriteDatabase;
 
 import javax.inject.Inject;
 
+import dagger.Lazy;
 import nyc.friendlyrobot.demo.data.model.RedditData;
 import nyc.friendlyrobot.demo.data.remote.Api;
 import nyc.friendlyrobot.demo.data.store.base.BaseStore;
@@ -14,9 +15,9 @@ import rx.Observable;
 
 public class RedditStore extends BaseStore<RedditData, String> {
     @Inject
-    BriteDatabase db;
+    Lazy<BriteDatabase> db;
     @Inject
-    Api api;
+    Lazy<Api> api;
 
     @Inject
     Application application;
@@ -28,10 +29,6 @@ public class RedditStore extends BaseStore<RedditData, String> {
     }
 
     protected Observable<RedditData> fetch(String forceNetwork, String limit) {
-        return api.aww("50",forceNetwork);
+        return api.get().aww("50",forceNetwork);
     }
-
-
-
-
 }

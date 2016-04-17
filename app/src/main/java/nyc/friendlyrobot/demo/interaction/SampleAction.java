@@ -10,5 +10,4 @@ public class SampleAction extends Interaction {
     public SampleAction() {
     }
 
-
 }
