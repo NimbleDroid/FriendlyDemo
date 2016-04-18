@@ -2,6 +2,7 @@ package nyc.friendlyrobot.demo.ui.reddit;
 
 import javax.inject.Inject;
 
+import nyc.friendlyrobot.demo.data.store.RedditStore;
 import nyc.friendlyrobot.demo.interaction.RedditReader;
 import nyc.friendlyrobot.demo.ui.base.BasePresenter;
 import nyc.friendlyrobot.demo.ui.main.RedditMVPView;
@@ -15,9 +16,12 @@ public class RedditPresenter extends BasePresenter<RedditMVPView> {
     private Subscription subscription;
 
     @Inject
-    public RedditPresenter(RedditReader redditReader) {
+    public RedditPresenter(RedditReader redditReader, RedditStore store) {
 
         this.redditReader = redditReader;
+        store.fresh(RedditReader.LIMIT)
+                .compose(FriendlyScheduler.schedule())
+                .subscribe();
     }
 
     @Override

@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import nyc.friendlyrobot.demo.data.model.Post;
 import nyc.friendlyrobot.demo.data.store.RedditStore;
 import rx.Observable;
-import rx.schedulers.Schedulers;
 
 import static nyc.friendlyrobot.demo.data.model.Post.TABLE_NAME;
 
@@ -42,7 +41,6 @@ public class RedditReader extends Interaction {
 
     private Observable<List<Post>> seedDB() {
         return store.get(LIMIT)
-                .subscribeOn(Schedulers.io())
                 .map(redditData -> redditData.data().children())
                 .flatMap(saver::save);
 
