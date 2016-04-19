@@ -9,9 +9,9 @@ import org.immutables.value.Value;
  */
 @Value.Immutable
 @Value.Style(allParameters = true)
-public abstract class FlatPost implements PostModel {
-    public static final Mapper<FlatPost> MAPPER =
-            new Mapper<>((Mapper.Creator<FlatPost>) ImmutableFlatPost::of);
+public abstract class PostDB implements PostModel {
+    public static final Mapper<PostDB> MAPPER =
+            new Mapper<>((Mapper.Creator<PostDB>) ImmutablePostDB::of);
 
     public static final class Marshal extends PostMarshal {
     }
