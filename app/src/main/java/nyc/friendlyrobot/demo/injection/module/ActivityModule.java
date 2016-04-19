@@ -5,6 +5,7 @@ import android.content.Context;
 
 import dagger.Module;
 import dagger.Provides;
+import nyc.friendlyrobot.demo.injection.ScopeActivity;
 
 @Module
 public class ActivityModule {
@@ -21,7 +22,7 @@ public class ActivityModule {
     }
 
     @Provides
-    @ActivityContext
+    @ScopeActivity
     Context providesContext() {
         return mActivity;
     }
