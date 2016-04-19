@@ -133,9 +133,9 @@ dependencies {
 //        transitive = true;
 //    }
 
-    apt "org.immutables:value:2.1.16-SNAPSHOT" // <-- for annotation processor
-    provided "org.immutables:value:2.1.16-SNAPSHOT" // <-- for annotation API
-    provided "org.immutables:gson:2.1.16-SNAPSHOT" // for annotations
+    apt "org.immutables:value:2.1.16" // <-- for annotation processor
+    provided "org.immutables:value:2.1.16" // <-- for annotation API
+    provided "org.immutables:gson:2.1.16" // for annotations
 
     compile 'com.google.code.gson:gson:2.6.1'
     compile 'com.google.guava:guava:19.0'
