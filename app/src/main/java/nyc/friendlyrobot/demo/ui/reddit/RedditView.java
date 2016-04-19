@@ -13,7 +13,6 @@ import butterknife.ButterKnife;
 import nyc.friendlyrobot.demo.androidboilerplate.R;
 import nyc.friendlyrobot.demo.data.model.Post;
 import nyc.friendlyrobot.demo.ui.base.BaseActivity;
-import nyc.friendlyrobot.demo.ui.main.RedditMVPView;
 
 
 public class RedditView extends CoordinatorLayout implements RedditMVPView {

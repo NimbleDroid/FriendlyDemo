@@ -2,7 +2,7 @@ package nyc.friendlyrobot.demo.injection;
 
 import android.app.Activity;
 
-import nyc.friendlyrobot.demo.BoilerplateApplication;
+import nyc.friendlyrobot.demo.DemoApplication;
 import nyc.friendlyrobot.demo.injection.component.ActivityComponent;
 import nyc.friendlyrobot.demo.injection.module.ActivityModule;
 
@@ -12,7 +12,7 @@ public final class ActivityComponentFactory {
     }
 
     public static ActivityComponent create(Activity activity) {
-        return BoilerplateApplication.get(activity).getComponent()
+        return DemoApplication.get(activity).getComponent()
                 .plus(new ActivityModule(activity));
     }
 }

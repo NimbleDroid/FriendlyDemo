@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.demo.ui.main.widgets;
+package nyc.friendlyrobot.demo.ui.base.widgets;
 
 import android.content.Context;
 import android.content.res.TypedArray;

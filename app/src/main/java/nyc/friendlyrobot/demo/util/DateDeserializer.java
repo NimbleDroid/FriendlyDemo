@@ -13,7 +13,8 @@ public class DateDeserializer implements JsonDeserializer<Date> {
     public DateDeserializer() {
     }
 
-    public Date deserialize(JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException {
+    public Date deserialize(JsonElement json, Type type, JsonDeserializationContext context)
+            throws JsonParseException {
         return new Date(TimeUnit.MILLISECONDS.convert(json.getAsLong(),TimeUnit.SECONDS));
     }
 }

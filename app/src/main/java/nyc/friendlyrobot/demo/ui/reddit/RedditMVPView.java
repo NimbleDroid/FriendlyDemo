@@ -1,4 +1,4 @@
-package nyc.friendlyrobot.demo.ui.main;
+package nyc.friendlyrobot.demo.ui.reddit;
 
 import java.util.List;
 

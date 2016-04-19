@@ -7,7 +7,7 @@ import nyc.friendlyrobot.demo.injection.ActivityComponentFactory;
 import nyc.friendlyrobot.demo.injection.component.ActivityComponent;
 import nyc.friendlyrobot.demo.util.BundleService;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     protected ActivityComponent activityComponent;
     private BundleService bundleService;
@@ -15,7 +15,10 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(getLayout());
+
     }
+
 
     public ActivityComponent getActivityComponent() {
         if (activityComponent == null) {
@@ -27,5 +30,7 @@ public class BaseActivity extends AppCompatActivity {
     public BundleService getBundleService() {
         return bundleService;
     }
+    protected abstract int getLayout();
+
 
 }

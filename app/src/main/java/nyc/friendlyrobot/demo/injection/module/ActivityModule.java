@@ -5,7 +5,6 @@ import android.content.Context;
 
 import dagger.Module;
 import dagger.Provides;
-import nyc.friendlyrobot.demo.injection.ActivityContext;
 
 @Module
 public class ActivityModule {

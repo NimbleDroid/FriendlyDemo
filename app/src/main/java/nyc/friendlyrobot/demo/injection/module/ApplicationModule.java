@@ -22,7 +22,6 @@ import nyc.friendlyrobot.demo.androidboilerplate.BuildConfig;
 import nyc.friendlyrobot.demo.data.local.Database;
 import nyc.friendlyrobot.demo.data.model.GsonAdaptersModel;
 import nyc.friendlyrobot.demo.data.remote.Api;
-import nyc.friendlyrobot.demo.injection.ApplicationContext;
 import nyc.friendlyrobot.demo.util.DateDeserializer;
 import okhttp3.OkHttpClient;
 import retrofit2.GsonConverterFactory;

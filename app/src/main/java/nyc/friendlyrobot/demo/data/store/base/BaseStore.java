@@ -10,7 +10,7 @@ import rx.Observable;
  * @param <Response> data type after parsing
  *            <p>
  *            get = cached data if not stale otherwise network, updates caches
- *            network=skip memory and disk cache, still updates caches
+ *            fresh=skip memory and disk cache
  */
 public abstract class BaseStore<Response, Request> implements Store<Response, Request> {
     public static final String SUCCESS_RESPONSE = "SUCCESS";

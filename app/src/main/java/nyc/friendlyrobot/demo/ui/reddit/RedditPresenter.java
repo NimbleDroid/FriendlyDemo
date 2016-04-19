@@ -4,7 +4,6 @@ import javax.inject.Inject;
 
 import nyc.friendlyrobot.demo.interaction.RedditReader;
 import nyc.friendlyrobot.demo.ui.base.BasePresenter;
-import nyc.friendlyrobot.demo.ui.main.RedditMVPView;
 import nyc.friendlyrobot.demo.util.FriendlyScheduler;
 import rx.Subscription;
 

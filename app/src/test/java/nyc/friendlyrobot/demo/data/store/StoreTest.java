@@ -12,6 +12,7 @@ import nyc.friendlyrobot.demo.data.model.RedditData;
 public class StoreTest extends BaseTestCase {
     @Inject
     RedditStore store;
+
     @Before
     public void setUp() throws Exception {
         super.setUp();
@@ -19,9 +20,7 @@ public class StoreTest extends BaseTestCase {
 
     @Test
     public void testStore() throws Exception {
-
         RedditData data = store.get("50").toBlocking().first();
-        assertTrue(data.data().children().size()>0);
-
+        assertTrue(data.data().children().size() > 0);
     }
 }

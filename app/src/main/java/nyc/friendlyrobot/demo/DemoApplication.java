@@ -9,7 +9,7 @@ import nyc.friendlyrobot.demo.injection.component.DaggerApplicationComponent;
 import nyc.friendlyrobot.demo.injection.module.ApplicationModule;
 import timber.log.Timber;
 
-public class BoilerplateApplication extends Application  {
+public class DemoApplication extends Application  {
 
     ApplicationComponent mApplicationComponent;
 
@@ -22,8 +22,8 @@ public class BoilerplateApplication extends Application  {
         }
     }
 
-    public static BoilerplateApplication get(Context context) {
-        return (BoilerplateApplication) context.getApplicationContext();
+    public static DemoApplication get(Context context) {
+        return (DemoApplication) context.getApplicationContext();
     }
 
     public ApplicationComponent getComponent() {
